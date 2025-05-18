@@ -1,0 +1,63 @@
+[
+  {
+    "id": 1,
+    "prompt": "Write a function that checks if a given string is a palindrome in Python.",
+    "function_name": "is_palindrome",
+    "test_code": "assert is_palindrome(\"madam\") == True\nassert is_palindrome(\"hello\") == False\nassert is_palindrome(\"A man a plan a canal Panama\".replace(\" \", \"\").lower()) == True"
+  },
+  {
+    "id": 2,
+    "prompt": "Implement a class representing a simple bank account with deposit and withdrawal methods in Python.",
+    "function_name": "BankAccount",
+    "test_code": "account = BankAccount('John Doe', 1000)\naccount.deposit(500)\nassert account.balance == 1500\naccount.withdraw(200)\nassert account.balance == 1300\ntry:\n    account.withdraw(2000)\nexcept ValueError:\n    pass\nelse:\n    raise AssertionError('Expected ValueError for overdraft')"
+  },
+  {
+    "id": 3,
+    "prompt": "Write a function that takes a list of integers and returns the second largest number in Python.",
+    "function_name": "second_largest",
+    "test_code": "assert second_largest([1, 2, 3, 4, 5]) == 4\nassert second_largest([10, 10, 9, 8]) == 9\nassert second_largest([1, 2]) == 1\ntry:\n    second_largest([42])\nexcept ValueError:\n    pass"
+  },
+  {
+    "id": 4,
+    "prompt": "Implement a recursive function to compute the factorial of a number in Python.",
+    "function_name": "factorial",
+    "test_code": "assert factorial(0) == 1\nassert factorial(1) == 1\nassert factorial(5) == 120"
+  },
+  {
+    "id": 5,
+    "prompt": "Write a program that reads a text file and counts the number of words in Python.",
+    "function_name": "count_words_in_file",
+    "test_code": "with open('temp.txt', 'w') as f:\n    f.write('Hello world! This is a test file.')\nassert count_words_in_file('temp.txt') == 7\nimport os\nos.remove('temp.txt')"
+  },
+  {
+    "id": 6,
+    "prompt": "Implement a function to sort a list using the merge sort algorithm in Python.",
+    "function_name": "merge_sort",
+    "test_code": "assert merge_sort([5, 3, 8, 4, 2]) == [2, 3, 4, 5, 8]\nassert merge_sort([]) == []\nassert merge_sort([1]) == [1]"
+  },
+  {
+    "id": 7,
+    "prompt": "Write a function that finds the longest substring without repeating characters in Python.",
+    "function_name": "longest_unique_substring",
+    "test_code": "assert longest_unique_substring('abcabcbb') == 'abc'\nassert longest_unique_substring('bbbbb') == 'b'\nassert longest_unique_substring('pwwkew') == 'wke'"
+  },
+  {
+    "id": 8,
+    "prompt": "Implement a class `Person` with attributes `name` and `age`, and a method to display the person's info in Python.",
+    "function_name": "Person",
+    "test_code": "p = Person('Alice', 30)\nassert p.name == 'Alice'\nassert p.age == 30\nassert p.display_info() == 'Name: Alice, Age: 30'"
+  },
+  {
+    "id": 9,
+    "prompt": "Write a program that connects to a REST API and prints the response in Python.",
+    "function_name": "fetch_data",
+    "test_code": "assert 'userId' in fetch_data('https://jsonplaceholder.typicode.com/todos/1')"
+  },
+  {
+    "id": 10,
+    "prompt": "Write a function that checks whether a given number is a prime number in Python.",
+    "function_name": "is_prime",
+    "test_code": "assert is_prime(2) == True\nassert is_prime(11) == True\nassert is_prime(15) == False\nassert is_prime(1) == False"
+  }
+]
+
