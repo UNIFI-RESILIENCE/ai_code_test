@@ -46,8 +46,13 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       run: |
         /opt/sonar-scanner/bin/sonar-scanner \
-          -Dsonar.projectKey=<your_project_key> \
-          -Dsonar.organization=<your_organization> \
+          -Dsonar.projectKey=UNIFI-RESILIENCE_ai_code_test \
+          -Dsonar.organization=unifi-resilience \
           -Dsonar.sources=LLM_GEN \
           -Dsonar.host.url=https://sonarcloud.io \
           -Dsonar.login=$SONAR_TOKEN
+
+    - name: SonarQube Scan
+      uses: SonarSource/sonarqube-scan-action@v5
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
