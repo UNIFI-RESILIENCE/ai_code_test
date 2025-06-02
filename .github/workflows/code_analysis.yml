@@ -22,3 +22,32 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install pylint
+
+    - name: Run Pylint and save JSON report
+      run: |
+        pylint --output-format=json LLM_GEN/**/*.py > pylint-report.json || true
+
+    - name: Upload Pylint JSON report
+      uses: actions/upload-artifact@v4
+      with:
+        name: pylint-json-report
+        path: pylint-report.json
+
+    - name: Install SonarCloud Scanner
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y unzip openjdk-11-jre
+        curl -sSLo sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
+        unzip sonar-scanner.zip
+        sudo mv sonar-scanner-* /opt/sonar-scanner
+
+    - name: Run SonarCloud Analysis
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      run: |
+        /opt/sonar-scanner/bin/sonar-scanner \
+          -Dsonar.projectKey=<your_project_key> \
+          -Dsonar.organization=<your_organization> \
+          -Dsonar.sources=LLM_GEN \
+          -Dsonar.host.url=https://sonarcloud.io \
+          -Dsonar.login=$SONAR_TOKEN
