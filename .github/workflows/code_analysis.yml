@@ -64,3 +64,10 @@ jobs:
           -Dsonar.organization=unifi-resilience
           -Dsonar.sources=LLM_GEN
           -Dsonar.exclusions=**/*.java
+
+
+    - name: Run Pylint and save reports
+      run: |
+        pip install pylint pylint-json2html
+        pylint --output-format=json LLM_GEN/**/*.py > pylint-report.json || true
+        pylint-json2html -f json -o pylint-report.html pylint-report.json
