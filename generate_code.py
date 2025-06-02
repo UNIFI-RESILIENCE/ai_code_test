@@ -10,11 +10,11 @@ def generate_code(prompt: str) -> str:
     """Generate code using the OpenRouter API."""
     url = "https://openrouter.ai/api/v1/chat/completions"
     headers = {
-        "Authorization": "Bearer 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",
+        "Authorization": "Bearer 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",
         "Content-Type": "application/json"
     }
     data = {
-        "model": "mistralai/codestral-2501",
+        "model": "anthropic/claude-sonnet-4",
         "messages": [
             {
                 "role": "user",
