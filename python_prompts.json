@@ -60,4 +60,3 @@
     "test_code": "assert is_prime(2) == True\nassert is_prime(11) == True\nassert is_prime(15) == False\nassert is_prime(1) == False"
   }
 ]
-

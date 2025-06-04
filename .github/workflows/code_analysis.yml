@@ -2,7 +2,6 @@ name: Pylint and SonarCloud Analysis
 
 on: [push]
 
-
 jobs:
   lint-and-analyze:
     runs-on: ubuntu-latest
@@ -33,26 +32,6 @@ jobs:
         name: pylint-json-report
         path: pylint-report.json
 
-    - name: Install SonarCloud Scanner
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y unzip openjdk-11-jre
-        curl -sSLo sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
-        unzip sonar-scanner.zip
-        sudo mv sonar-scanner-* /opt/sonar-scanner
-
-    - name: Run SonarCloud Analysis
-      env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      run: |
-        /opt/sonar-scanner/bin/sonar-scanner \
-          -Dsonar.projectKey=UNIFI-RESILIENCE_ai_code_test \
-          -Dsonar.organization=unifi-resilience \
-          -Dsonar.sources=LLM_GEN \
-          -Dsonar.exclusions=**/*.java \
-          -Dsonar.host.url=https://sonarcloud.io \
-          -Dsonar.login=$SONAR_TOKEN
-
 
     - name: SonarQube Scan
       uses: SonarSource/sonarqube-scan-action@v5
@@ -66,8 +45,28 @@ jobs:
           -Dsonar.exclusions=**/*.java
 
 
-    - name: Run Pylint and save reports
-      run: |
-        pip install pylint pylint-json2html
-        pylint --output-format=json LLM_GEN/**/*.py > pylint-report.json || true
-        pylint-json2html -f json -o pylint-report.html pylint-report.json
+    # - name: Install SonarCloud Scanner
+    #   run: |
+    #     sudo apt-get update
+    #     sudo apt-get install -y unzip openjdk-11-jre
+    #     curl -sSLo sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
+    #     unzip sonar-scanner.zip
+    #     sudo mv sonar-scanner-* /opt/sonar-scanner
+
+    # - name: Run SonarCloud Analysis
+    #   env:
+    #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+    #   run: |
+    #     /opt/sonar-scanner/bin/sonar-scanner \
+    #       -Dsonar.projectKey=UNIFI-RESILIENCE_ai_code_test \
+    #       -Dsonar.organization=unifi-resilience \
+    #       -Dsonar.sources=LLM_GEN \
+    #       -Dsonar.exclusions=**/*.java \
+    #       -Dsonar.host.url=https://sonarcloud.io \
+    #       -Dsonar.login=$SONAR_TOKEN
+
+    # - name: Run Pylint and save reports
+    #   run: |
+    #     pip install pylint pylint-json2html
+    #     pylint --output-format=json LLM_GEN/**/*.py > pylint-report.json || true
+    #     pylint-json2html -f json -o pylint-report.html pylint-report.json

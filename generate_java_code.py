@@ -8,7 +8,7 @@ def read_prompts(file_path: str) -> list:
 def generate_code(prompt: str) -> str:
     url = "https://openrouter.ai/api/v1/chat/completions"
     headers = {
-        "Authorization": "Bearer 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",
+        "Authorization": "Bearer ",
         "Content-Type": "application/json"
     }
     data = {
