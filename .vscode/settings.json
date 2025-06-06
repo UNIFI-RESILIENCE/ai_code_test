@@ -1,0 +1,6 @@
+{
+    "sonarlint.connectedMode.project": {
+        "connectionId": "unifi-resilience",
+        "projectKey": "UNIFI-RESILIENCE_ai_code_test"
+    }
+}
