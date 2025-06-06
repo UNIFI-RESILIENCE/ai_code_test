@@ -41,7 +41,7 @@ jobs:
         args: >
           -Dsonar.projectKey=UNIFI-RESILIENCE_ai_code_test
           -Dsonar.organization=unifi-resilience
-          -Dsonar.sources=LLM_GEN
+          -Dsonar.sources=LLM_GEN_**
           -Dsonar.exclusions=**/*.java
 
 

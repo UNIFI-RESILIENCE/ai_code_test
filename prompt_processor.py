@@ -7,7 +7,7 @@ import re
 
 #openai/chatgpt-4o-latest
 #deepseek/deepseek-chat-v3-0324
-MODEL = "openai/chatgpt-4o-latest"  # Or another simple model from OpenRouter
+MODEL = "openai/chatgpt-4o-latest"  
 token = os.getenv("OPENROUTER_API_KEY") 
 
 headers = {
@@ -23,9 +23,10 @@ def infer_function_name(prompt):
     }
 
 
-    system_prompt = "You are an assistant that helps convert programming questions into descriptive  function names."
-    user_prompt = f"Avoid infering name based on competitive programming \
-                    platforms. Also avoid common function names like A, based, B etc.. Based on the following problem, suggest a concise and descriptive Python function name:\n\n{prompt}\n\nFunction name:  "
+    system_prompt = "You are an ai assistant that helps convert programming questions and user stories into descriptive  function names."
+    user_prompt = f"Avoid infering name based on competitive programming platforms. \
+                    Format the prompt to enable another llm generate the right codes. \
+                    Also avoid common function names like A, based, B etc.. Based on the following problem, suggest a concise and descriptive Python function name:\n\n{prompt}\n\nFunction name:  "
    
     data = {
         "model": MODEL,

@@ -7,7 +7,7 @@ def read_prompts(file_path: str) -> list:
     with open(file_path, 'r') as file:
         return json.load(file)
 
-def generate_code(prompt: str) -> str:
+def generate_code(prompt: str, model_name: str) -> str:
     """Generate code using the OpenRouter API."""
     url = "https://openrouter.ai/api/v1/chat/completions"
     token = os.getenv("OPENROUTER_API_KEY")
@@ -20,11 +20,11 @@ def generate_code(prompt: str) -> str:
         "Content-Type": "application/json"
     }
 
-    system_prompt = "You are a code assistant that helps generate codes."
+    system_prompt = "You are a code assistant that helps generate python codes."
     user_prompt = f"Based on the following problem description, generate the optimum code for this prompt \n\n{prompt}\n\n"
-    #"anthropic/claude-3-sonnet"
+    #"anthropic/claude-sonnet-4"
     data = {
-        "model": "openai/chatgpt-4o-latest",
+        "model": model_name,
         "messages": [
             {
                 "role": "user",
@@ -70,13 +70,25 @@ def save_code(file_name: str, code: str):
         file.write(code)
 
 def main():
-    prompts = read_prompts('transformed_prompt.json')
-    for item in prompts:
-        print(f"Generating code for prompt: {item['function_name']}")
-        code = generate_code(item['prompt'])
-        file_name = f"LLM_GEN/{item['function_name']}.py"
-        save_code(file_name, code)
-        print(f"Saved generated code to {file_name}\n")
+    prompts = read_prompts('python_prompts.json')
+    llm_models=["openai/chatgpt-4o-latest", "qwen/qwen-2.5-coder-32b-instruct", "deepseek/deepseek-chat-v3-0324"]
+
+    for model in llm_models:
+        file_name_pref = ''
+        if model == 'openai/chatgpt-4o-latest':
+            file_name_pref = "LLM_GEN_GPT4"
+        elif model == 'qwen/qwen-2.5-coder-32b-instruct':
+            file_name_pref = "LLM_GEN_QWEN"
+        else:
+            file_name_pref = "LLM_GEN_DEEPCODER"
+
+        for item in prompts:
+            print(f"Generating code for prompt: {item['function_name']}")
+            code = generate_code(item['prompt'], model)
+            file_name = f"{file_name_pref}/{item['function_name']}.py"
+            save_code(file_name, code)
+            print(f"Saved generated code to {file_name}\n")
+
 
 if __name__ == "__main__":
     main()

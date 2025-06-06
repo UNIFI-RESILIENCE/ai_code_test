@@ -3,7 +3,7 @@ from collections import Counter
 import matplotlib.pyplot as plt
 
 # Load JSON data from file
-with open("pylint-report.json", "r") as file:
+with open("qwen_pylint-report.json", "r") as file:
     lint_data = json.load(file)
 
 # Count occurrences of each 'type'
