@@ -1,0 +1,51 @@
+min_extra_chars_after_dict_partitioning.py
+    [1m[35mF [0m1:0 min_extra_char - [32mA (4)[0m
+count_passengers_over_sixty.py
+    [1m[35mF [0m1:0 count_seniors - [32mA (3)[0m
+minimize_binary_uniformity_cost.py
+    [1m[35mF [0m1:0 min_cost_to_make_string_equal - [33mC (11)[0m
+maximize_product_with_single_increment.py
+    [1m[35mF [0m3:0 max_product_after_increment - [32mA (5)[0m
+    [1m[35mF [0m24:0 main - [32mA (3)[0m
+compute_min_sum_k_avoiding_array.py
+    [1m[35mF [0m1:0 minimum_sum - [32mA (5)[0m
+compute_max_truck_weight_difference.py
+    [1m[35mF [0m3:0 solve - [32mB (8)[0m
+count_servers_with_no_requests_in_window.py
+    [1m[35mF [0m1:0 count_servers - [32mB (6)[0m
+max_alternating_parity_subarray_sum.py
+    [1m[35mF [0m3:0 solve - [32mA (5)[0m
+longest_semi_repetitive_substring_length.py
+    [1m[35mF [0m1:0 longestSemiRepetitiveSubstring - [32mB (7)[0m
+can_traverse_all_indices_with_gcd_path.py
+    [1m[35mF [0m4:0 canTraverseAllPairs - [33mC (13)[0m
+count_non_palindromic_k_substrings_completions.py
+    [1m[35mF [0m4:0 solve - [33mC (13)[0m
+identify_ball_game_losers.py
+    [1m[35mF [0m1:0 find_losers - [32mA (4)[0m
+count_max_reversed_string_pairs.py
+    [1m[35mF [0m1:0 maximumNumberOfStringPairs - [32mA (3)[0m
+is_valid_original_from_xor_cycle.py
+    [1m[35mF [0m1:0 doesValidArrayExist - [32mA (2)[0m
+count_beautiful_coprime_index_pairs.py
+    [1m[35mF [0m3:0 count_beautiful_pairs - [32mA (5)[0m
+compute_expected_black_ball_position_modulo.py
+    [1m[35mF [0m3:0 solve - [32mA (4)[0m
+minimize_chocolate_collection_cost.py
+    [1m[35mF [0m1:0 min_cost_to_collect_chocolates - [32mA (4)[0m
+maximize_bitwise_or_with_doubling_operations.py
+    [1m[35mF [0m1:0 maxOr - [33mC (13)[0m
+count_passing_ant_pairs_within_time.py
+    [1m[35mF [0m3:0 solve - [32mA (4)[0m
+make_min_operations_lex_smallest_palindrome.py
+    [1m[35mF [0m1:0 make_palindrome - [32mA (4)[0m
+compute_min_item_relocation_cost.py
+    [1m[35mF [0m1:0 solve - [32mA (5)[0m
+count_equal_power_note_pairs.py
+    [1m[35mF [0m4:0 solve - [32mB (6)[0m
+find_max_sum_with_min_constraints.py
+    [1m[35mF [0m3:0 maximumSumQueries - [32mB (10)[0m
+longest_equal_subarray_after_deletions.py
+    [1m[35mF [0m1:0 longest_equal_subarray - [32mA (3)[0m
+min_adjacent_swaps_to_semi_order_permutation.py
+    [1m[35mF [0m1:0 semi_ordered_permutation - [32mA (2)[0m
